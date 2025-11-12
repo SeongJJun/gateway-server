@@ -4,6 +4,7 @@ COPY ${JAR_FILE} app.jar
 
 ENV HOSTNAME=localhost
 
-ENTRYPOINT ["java", "-DEUREKA_INSTANC_HOSTNAME=${HOSTNAME}","-jar", "app.jar"]
+ENTRYPOINT ["java", "-Deureka.instance.hostname=${HOSTNAME}","-Deureka.client.serviceUrl.defaultZone=${EUREKA_URL}", "-jar", "app.jar"]
+
 
 EXPOSE 3000
